@@ -1,9 +1,12 @@
 #!/bin/bash
-container_name=nifty_vaughan
+#docker run --expose=8000-9000 --name mobinet -it od "/bin/bash"
+container_name=mobinet
 
 if [ `docker ps -a | grep $container_name | wc -l` -lt 1 ]
 then
   echo "[docker] !!! There is no \"$container_name\" container !!!"
+  echo "         !!! please run initially below command first"
+  echo "docker run --expose=8000-9000 --name mobinet -it od \"/bin/bash\""
 elif [ `docker ps | grep $container_name | wc -l` -eq 1 ]
 then
   echo "[docker] !!! attach \"$container_name\" container !!!"
@@ -15,6 +18,3 @@ else
   docker start $container_name
   docker exec -it $container_name /bin/bash
 fi
-
-#docker ps
-#docker stop

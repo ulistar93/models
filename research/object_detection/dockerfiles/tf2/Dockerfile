@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     python3-pil \
     python3-lxml \
     python3-tk \
-    wget
+    wget \
+    tmux
 
 # Install gcloud and gsutil commands
 # https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
@@ -37,5 +38,8 @@ ENV PATH="/home/tensorflow/.local/bin:${PATH}"
 
 RUN python -m pip install -U pip
 RUN python -m pip install .
+RUN python -m pip install --use-feature=2020-resolver .
+RUN python -m pip install -U tensorflow==2.2
+RUN python -m pip install -U tf-models-official==2.2
 
 ENV TF_CPP_MIN_LOG_LEVEL 3
