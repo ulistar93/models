@@ -41,5 +41,6 @@ RUN python -m pip install .
 RUN python -m pip install --use-feature=2020-resolver .
 RUN python -m pip install -U tensorflow==2.2
 RUN python -m pip install -U tf-models-official==2.2
+RUN python -m pip install jupyter
 
 ENV TF_CPP_MIN_LOG_LEVEL 3
